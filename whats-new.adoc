@@ -1,0 +1,105 @@
+---
+sidebar: sidebar 
+permalink: whats-new.html 
+keywords: 'what"s new, features, new, release notes, bugs, limitations, known issues, enhancements, fixes, gfc, global file cache' 
+summary: Descubra las novedades de Global File Cache. 
+---
+= Novedades de la caché global de archivos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Descubra las novedades de Global File Cache.
+
+
+
+== 24 de octubre de 2022 (versión 2.1)
+
+Esta versión proporciona las nuevas funciones que se enumeran a continuación. También soluciona los problemas descritos en https://docs.netapp.com/us-en/cloud-manager-file-cache/fixed-issues.html["Problemas solucionados"]. Los paquetes de software actualizados están disponibles en https://docs.netapp.com/us-en/cloud-manager-file-cache/download-gfc-resources.html#download-required-resources["esta página"].
+
+
+
+=== La caché global de archivos ya está disponible con cualquier número de licencias
+
+Se ha eliminado el requisito mínimo anterior de 10 licencias, o 30 TB de almacenamiento. Se emitirá una licencia Global File Cache por cada 3 TB de almacenamiento.
+
+
+
+=== Se ha agregado compatibilidad para utilizar un servidor de administración de licencias sin conexión
+
+Un servidor de administración de licencias (LMS) fuera de línea o un sitio oscuro es más útil cuando el LMS no tiene una conexión a Internet para la validación de licencias con fuentes de licencias. Durante la configuración inicial es necesaria una conexión a Internet y una conexión a una fuente de licencia. Una vez configurada, la instancia LMS puede volverse oscura. Todos los bordes/núcleos deben tener una conexión con LMS para la validación continua de licencias.
+
+
+
+=== Las instancias de EDGE pueden admitir usuarios simultáneos adicionales
+
+Una única instancia de Global File Cache Edge puede servir hasta 500 usuarios por instancia física Edge dedicada y hasta 300 usuarios para puestas en marcha virtuales dedicadas. El número máximo de usuarios era 400 y 200, respectivamente.
+
+
+
+=== Optimus PSM mejorado para configurar Cloud Licensing
+
+
+
+=== Se ha mejorado la función de sincronización perimetral de la interfaz de usuario optimizada (configuración de bordes) para mostrar todos los clientes conectados
+
+
+
+== 25 de julio de 2022 (versión 2.0)
+
+Esta versión proporciona las nuevas funciones que se enumeran a continuación. También soluciona los problemas descritos en https://docs.netapp.com/us-en/cloud-manager-file-cache/fixed-issues.html["Problemas solucionados"].
+
+
+
+=== Nuevo modelo de licencia basado en la capacidad para la caché de archivos global a través de Azure Marketplace
+
+Una nueva licencia "Edge Cache" tiene las mismas funcionalidades que la licencia "CVO Professional", pero también incluye compatibilidad con Global File Cache. Verá esta opción cuando ponga en marcha un nuevo sistema Cloud Volumes ONTAP en Azure. Puede implementar un sistema Edge de caché de archivos global para cada 3 TIB de capacidad aprovisionada en el sistema Cloud Volumes ONTAP. Debe aprovisionarse un mínimo de 30 TIB. El servicio GFC License Manager se ha mejorado para proporcionar licencias basadas en capacidad.
+
+https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["Obtenga más información acerca del paquete de licencia de Edge Cache."]
+
+
+
+=== La caché de archivos global ahora está integrada con Cloud Insights
+
+NetApp Cloud Insights (CI) ofrece una total visibilidad de su infraestructura y sus aplicaciones. La caché de archivos global se integra ahora con CI para ofrecer una visibilidad completa de todos los bordes y núcleos; supervisión de procesos que se ejecutan en las instancias. Se insertan varias métricas de caché global de archivos en CI para proporcionar una visión general completa en el panel de CI. Consulte el capítulo 11 de la https://repo.cloudsync.netapp.com/gfc/Global%20File%20Cache%202.1.0%20User%20Guide.pdf["Guía del usuario de caché global de archivos de NetApp"^]
+
+https://cloud.netapp.com/cloud-insights["Obtenga más información acerca de Cloud Insights."]
+
+
+
+=== El servidor de administración de licencias se ha mejorado para funcionar en entornos muy restrictivos
+
+Durante la configuración de la licencia, el servidor de gestión de licencias (LMS) debe tener acceso a Internet para recopilar los datos de licencias de NetApp/Zuora. Una vez que la configuración es correcta, el LMS puede seguir trabajando en modo sin conexión y proporcionar capacidades de licencia a pesar de estar en entornos restrictivos.
+
+
+
+=== La interfaz de usuario de Edge Sync en Optimus se ha mejorado para mostrar la lista de clientes conectados en un coordinador Edge
+
+
+
+== 23 de junio de 2022 (versión 1.3.1)
+
+El software Global File Cache Edge para la versión 1.3.1 está disponible en https://docs.netapp.com/us-en/cloud-manager-file-cache/download-gfc-resources.html#download-required-resources["esta página"]. En esta versión se solucionan los problemas descritos en https://docs.netapp.com/us-en/cloud-manager-file-cache/fixed-issues.html["Problemas solucionados"].
+
+
+
+== 19 de mayo de 2022 (versión 1.3.0)
+
+El software Global File Cache Edge para la versión 1.3.0 está disponible en https://docs.netapp.com/us-en/cloud-manager-file-cache/download-gfc-resources.html#download-required-resources["esta página"].
+
+
+
+=== Nueva función de sincronización de bordes de metadatos
+
+Esta función "Metadata Edge Sync" utiliza la función de sincronización de bordes como marco central. Sólo se actualiza la información de metadatos en todos los bordes suscritos y los archivos/carpetas se crean en las máquinas Edge.
+
+
+
+=== Mejoras del servicio de Administrador de licencias
+
+El servicio de servidor de administración de licencias (LMS) de caché global de archivos se ha mejorado para detectar automáticamente la configuración de proxy. Esto permite una configuración perfecta.

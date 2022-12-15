@@ -1,0 +1,79 @@
+---
+sidebar: sidebar 
+permalink: fixed-issues.html 
+keywords: fixed issues, release notes, fixes, gfc, global file cache 
+summary: Vea qué problemas se han solucionado en la caché de archivos global. 
+---
+= Se han solucionado problemas en la caché global de archivos
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vea qué problemas se han solucionado en la caché de archivos global.
+
+
+
+== 24 de octubre de 2022 (versión 2.1)
+
+* Durante la configuración de licencias, se realiza una validación adicional del número de suscripción GFC.
+* GFC ha añadido soporte para ampliar la licencia durante un período específico para las licencias basadas en Zuora. Póngase en contacto con el soporte GFC.
+* Se ha añadido un retardo de 15 segundos antes de escribir un minivolcado después de un bloqueo. También se ha añadido un temporizador para supervisar el minidump y salir del proceso por la fuerza si el volcado no se completa en 60 segundos. Estas mejoras menores ayudarán a un mejor análisis.
+* Se ha eliminado la propagación de información de transferencia de archivos individuales a Cloud Insights, pero se ha añadido la propagación de información de resumen de transferencia de archivos a Cloud Insights. De este modo se reduce la enorme carga en CI.
+* Incorporación de datos fijos y metadatos en Cloud Insights. Esto permite la visualización de datos CI.
+* Se ha corregido la interfaz de usuario de Optimus Configuration para que no se cuelgue mientras se hace clic en el botón "Registrar instancia en CI".
+* Se ha solucionado un problema por el que el monitor tService se dejaba manual durante la configuración inicial.
+* Se han corregido errores menores en el servicio cliente de GFC CI Agent.
+
+
+
+
+== 25 de julio de 2022 (versión 2.0)
+
+* Optimus se mejora añadiendo límites de límite a los parámetros de fecha/hora para la configuración de adición de trabajos de prepoblación.
+* Optimus PSM muestra ahora los detalles correctos de la CPU en los detalles de presolicitud del sistema.
+* Se ha corregido una excepción en la interfaz de usuario durante la configuración de sincronización perimetral entre introducir los detalles del coordinador y hacer clic en el botón Actualizar.
+* Se ha mejorado la interfaz de usuario de Optimus para activar/desactivar la función Edge Sync en el perímetro.
+* Se ha solucionado el problema del intervalo de fechas en el Administrador del servidor de licencias para el agregador de licencias de Zuora.
+* Se ha corregido el PSM Optimus para mostrar la información de recuento de arrendamiento.
+* Lógica del servidor de administración de licencias fija sobre el actualizador de configuración durante una actualización.
+
+
+
+
+== 23 de junio de 2022 (versión 1.3.1)
+
+* Tras la actualización, la versión correcta de Microsoft redistribuible no se instala correctamente y, como resultado, Tum no se inicia. El instalador GFC se ha solucionado para instalar la versión redistribuible correcta.
+* El servicio GFC License Manager (LMS) actualiza ahora la información de configuración, en lugar de sobrescribirla.
+* La interfaz de usuario de Configuración ahora se enlaza al System.net.http dll correcto durante el proceso de actualización.
+
+
+
+
+== 19 de mayo de 2022 (versión 1.3.0)
+
+* Se actualiza la página Configuration UI de la funcionalidad Edge Sync.
+* Se ha solucionado un problema al agregar trabajos de rellenado previo para varios bordes al mismo tiempo mediante los cmdlets de PowerShell.
+* Se ha solucionado un problema de visualización en la interfaz de usuario web de LMS que muestra la suscripción a NetApp.
+* La secuencia de comandos de PowerShell para la configuración de LMS utiliza TLS 1.2.
+* Se solucionó un problema en TappN (servicio de pre-población) y se le permitió continuar ejecutando el trabajo, a pesar de las disconexiones transitorias o de los reinicios de Tum.
+* El servicio de rellenado previo de TappN se actualiza para omitir los archivos de recuperación si el espacio libre en la caché cae por debajo del valor del umbral inferior.
+* Se ha solucionado un problema en el servicio de servidor de License Manager (LMS) mientras se escribía un registro de rastreo.
+* La infraestructura de registro de Tum se actualiza para ser más escalable con un alto rendimiento.
+
+
+
+
+== 17 de diciembre de 2021 (versión 1.2.0)
+
+* La interfaz de usuario de configuración (Optimus) se ha mejorado para validar las entradas del campo de fecha al mismo tiempo que se agregan trabajos de rellenado previo.
+* La rellenado previo se mejora para supervisar el uso de la caché y se omite el rellenado si el uso de la caché alcanza cerca de los parámetros de limpieza de la caché.
+* Se ha eliminado la dependencia rígida del servicio del servidor de administración de licencias (LMS) que se ejecuta localmente con la configuración de directivas.
+* El controlador GFC Kernel se ha mejorado para evitar un bloqueo en el servicio SMB Server en Windows Server 2016/2019.
+* Se ha corregido una excepción en el servicio LMS.
+* Los tipos de inicio de servicio para el servicio de servidor de License Manager (LMS), el servicio de cliente de License Manager (LMC) y el servicio de rellenado previo (TappN) se cambian de "retardado automático" a "automático".
+
