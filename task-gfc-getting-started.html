@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head class="at-element-marker">
+  <title>Primeros pasos | NetApp Documentation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta http-equiv="language" content="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:title" content="Primeros pasos | NetApp Documentation" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://docs.netapp.com/es-es/cloud-manager-file-cache/task-gfc-getting-started.html" />
+	<meta property="og:description" content="Utilice BlueXP para implementar el servidor de administración de caché de archivos global y el software de núcleo de caché de archivos global en el entorno d..." />
+  <meta property="og:image" content="https://docs.netapp.com/es-es/cloud-manager-file-cache/images/logo-tophat-social.png" />
+  <meta property="og:image:alt" content="NetApp Logo" />
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="encoding" content="utf-8">
+  <meta http-equiv="nss-type" content="Product Documentation"/>
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Utilice BlueXP para implementar el servidor de administración de caché de archivos global y el software de núcleo de caché de archivos global en el entorno d...">
+  <meta name="keywords" content=" global file cache, core, management server"><!-- Icons -->
+  <link rel="icon" href="/es-es/cloud-manager-file-cache/images/favicon.ico" type="image/x-icon">
+
+  <!-- RSS Feed --><link rel="alternate" type="application/rss+xml" title="NetApp Documentation" href="/es-es/cloud-manager-file-cache/feed.xml"><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
+
+  <!-- Elastic Search -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/searchkit/0.10.0/theme.css">
+
+  <!-- Combined CSS -->
+  <link rel="stylesheet" type="text/css" href="/es-es/cloud-manager-file-cache/css/netappdocs.css">
+
+  
+  <link rel="stylesheet" href="/es-es/cloud-manager-file-cache/css/landing-page.css" type="text/css">
+  <link rel="stylesheet" href="/es-es/cloud-manager-file-cache/css/tabbed-blocks.css" type="text/css">
+  <!-- Canonical url -->
+  <link rel='stylesheet' href='/es-es/cloud-manager-file-cache/css/na-feature.css' type='text/css'><!-- Top level site integrations --><script>
+    function addAdobeLaunch(adobeId) {
+      var head = document.getElementsByTagName('head')[0];
+      var adobe = document.createElement("script");
+      adobe.type = "text/plain";
+      adobe.className = "optanon-category-C0002";
+      adobe.src = "//assets.adobedtm.com/60287eadf1ee/c284da483c83/"+adobeId+".min.js";
+      head.appendChild(adobe);
+    }
+
+    function addGoogleAnalytics(gtagId) {
+      var google = document.createElement("script");
+      google.type = "text/plain";
+      google.className = "optanon-category-C0002";
+      google.src = "https://www.googletagmanager.com/gtag/js?id="+gtagId;
+      var head = document.getElementsByTagName('head')[0];
+      head.appendChild(google);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', gtagId);
+    }
+
+    function addConsent(consentId) {
+      var head = document.getElementsByTagName('head')[0];
+      var onetrustConsent = document.createElement("script");
+      onetrustConsent.type = "text/javascript";
+      onetrustConsent.src = "https://cdn.cookielaw.org/consent/"+consentId+"/OtAutoBlock.js";
+      head.appendChild(onetrustConsent);
+
+      var onetrustScript = document.createElement("script");
+      onetrustScript.type = "text/javascript";
+      onetrustScript.src = "https://cdn.cookielaw.org/scripttemplates/otSDKStub.js";
+      onetrustScript.charset = "UTF-8";
+      onetrustScript.dataset.documentLanguage = "true";
+      onetrustScript.dataset.domainScript = consentId;
+      head.appendChild(onetrustScript);
+    }addConsent("72570c5c-fe30-465f-b0e0-b77f7fb4ae34");
+    addAdobeLaunch("launch-e9ff3acac59f");
+    addGoogleAnalytics("UA-81697994-3");function OptanonWrapper() { }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+
+  <!-- Used for Product Family Page Sidebar Visibility --><!-- Used to import Promise for IE. Required for SearchKit -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bluebird/3.3.5/bluebird.min.js"></script><script src='/es-es/cloud-manager-file-cache/js/na-search.js'></script><script src='/es-es/cloud-manager-file-cache/js/na-pagenav.js'></script><script src='/es-es/cloud-manager-file-cache/js/na-utility.js'></script>
+  <script src='/es-es/cloud-manager-file-cache/js/clouddocs.js'></script>
+  <script src='/es-es/cloud-manager-file-cache/js/jquery.navgoco.min.js'></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src='/es-es/cloud-manager-file-cache/js/toc.js'></script>
+  <script src='/es-es/cloud-manager-file-cache/js/customscripts.js'></script><script>
+      $(document).ready(function() {
+          
+          var collapseOnInit = true;
+          
+
+          var navSettings = {
+              "caretHtml": '',
+              "accordion": collapseOnInit,
+              "openClass": 'active', // open
+              "save": false, // leave false or nav highlighting doesn't work right
+              "cookie": {
+                  "name": 'navgoco',
+                  "expires": false,
+                  "path": '/'
+              },
+              "slide": {
+                  "duration": 400,
+                  "easing": 'swing'
+              }
+          };
+
+          // Initialize navgoco with default options
+          $("#mysidebar").navgoco(navSettings);
+          
+
+          $("#collapseAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', false);
+          });
+
+          $("#expandAll").click(function(e) {
+              e.preventDefault();
+              $("#mysidebar").navgoco('toggle', true);
+          });
+
+          $(".sidebar-nav-container").on("scroll", function() {
+            $.cookie("sidebarScroll", $(".sidebar-nav-container").scrollTop(), {
+              path    : "/es-es/cloud-manager-file-cache"  
+            });
+          });
+          $(function() {
+            if ($.cookie("sidebarScroll")) {
+              $(".sidebar-nav-container").scrollTop($.cookie("sidebarScroll"));
+            }
+          });
+
+      });
+
+  </script>
+  <script>
+      $(document).ready(function() {
+          $("#tg-sb-link").click(function() {
+              $("#tg-sb-sidebar").toggle();
+              $("#tg-sb-content").toggleClass('col-md-9');
+              $("#tg-sb-content").toggleClass('col-md-12');
+              $("#tg-sb-icon").toggleClass('fa-toggle-on');
+              $("#tg-sb-icon").toggleClass('fa-toggle-off');
+          });
+      });
+  </script>
+  <script src='/es-es/cloud-manager-file-cache/js/custom-dropdown.js'></script>
+  <script src='/es-es/cloud-manager-file-cache/js/FileSaver.min.js'></script>
+  <script src='/es-es/cloud-manager-file-cache/js/jszip-utils.min.js'></script>
+  <script src='/es-es/cloud-manager-file-cache/js/jszip.min.js'></script>
+  <script src='/es-es/cloud-manager-file-cache/js/pdf-ux.js'></script>
+</head>
+
+
+  <body class role="document" data-flavor="">
+    <div id="page" class="n-off-canvas-menu">
+      <div class="n-off-canvas-menu__menu"><!--TODO: Add offcanvas code --></div>
+      <div class="n-off-canvas-menu__content-wrap">
+        <header class="site-header" id="banner">
+  
+  <!-- Start Page Toolbar -->
+  
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-file-cache/issues/new?body=Page%3A%20[Primeros pasos](https://docs.netapp.com/es-es/cloud-manager-file-cache/task-gfc-getting-started.html)&template=public-issue-template.md" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-file-cache/images/discuss-sm.svg" alt="" class="github-icon" />Solicitar cambios en el documento</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-file-cache/blob/main/task-gfc-getting-started.adoc" class="page-nav-contribute-link" role="button"><img src="/es-es/cloud-manager-file-cache/images/edit-sm.svg" alt="" class="github-icon" />Editar en GitHub</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/es-es/cloud-manager-file-cache/images/article-sm.svg" alt="" class="github-icon" />Guía del colaborador</a></div>
+    <div class="page-nav-container">
+      <nav class="page-nav-fixed">
+        <div class="page-nav-title">EN ESTA PÁGINA</div>
+        <div class="page-nav-links">
+          <ul class="page-nav-inner" id="page-menu"></ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+  
+  
+  <!-- Start top_hat -->
+  <div class="n-top-hat">
+    <div class="n-container">
+      <div class="n-top-hat__cross-property-nav">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/products-a-z/" class="n-top-hat__link">Producto y soluciones</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/support-and-training/netapp-university/" class="n-top-hat__link">Asistencia y capacitación</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://cloud.netapp.com" class="n-top-hat__link">Cloud Central</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://community.netapp.com/" class="n-top-hat__link">Comunidad</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://blog.netapp.com/" class="n-top-hat__link">Blog</a>
+          </li>
+          <li class="n-top-hat__list-item">
+            <a href="https://customers.netapp.com/en/" class="n-top-hat__link">Historias de clientes</a>
+          </li>
+        </ul>
+      </div>
+      <div class="n-top-hat__utils">
+        <ul class="n-top-hat__list">
+          <li class="n-top-hat__list-item">
+            <a href="https://www.netapp.com/company/contact-us/" target="_self" class="n-top-hat__link" data-ntap-ui="contact-us">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- End top_hat -->
+
+  <!-- Start property bar -->
+  <style>
+    .n-property-navigation-bar__menus--desktop-experience .n-menu--mega__default-content__heading span {
+    color: #34B0FF;
+    }
+  </style>
+  <div class="n-property-bar " data-ntap-ui="sticky-nav">
+    <div class="n-property-bar__inner-wrap">
+      <div class="n-property-bar__menu-toggle">
+        <a href="#" class="n-property-bar__menu-toggle-link">
+          <span class="n-property-bar__menu-toggle-text">Menu</span>
+          <svg class="n-icon-bars n-property-bar__menu-toggle-icon" aria-labelledby="title">
+            <title>bars</title>
+            <use xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#bars"></use>
+          </svg>
+        </a>
+      </div>
+      <div class="n-property-bar__property-mark ">
+        <a href="https://www.netapp.com" class="n-property-bar__property-link">
+          <div class="n-property-bar__logo">
+            <svg class="n-icon-netapp-mark n-icon-netapp-mark n-property-bar__netapp-mark-icon" aria-labelledby="title">
+              <title>netapp-mark</title>
+              <use xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#netapp-mark"></use>
+            </svg>
+            <svg class="n-icon-netapp-logo n-property-bar__logo-svg" aria-labelledby="title">
+              <title>netapp-logo</title>
+              <use xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#netapp-logo"></use>
+            </svg>
+          </div>
+        </a>
+      </div>
+
+      
+      
+      
+      <div class="search-property-bar">
+        <div id="search-demo-container" class="searchbox n-property-bar__search">
+          <div id="react-search" 
+          data-search-html="/es-es/cloud-manager-file-cache/search.html"
+          data-type="widget" 
+          data-placeholder="Buscar documentación"
+          data-no-results-found="No se encontraron resultados para {query}"
+          data-did-you-mean="Buscar {suggestion}."
+          data-no-results-found-did-you-mean="No se encontraron resultados para {query}. ¿Quiso decir {suggestion}?"
+          data-results-found="{hitCount} resultados encontrados"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
+          data-sk-es-pf-indexes=""
+          data-flavor=""></div>
+          <button class="n-property-bar__search-toggle-button" type="button">
+            <svg class="n-icon-search n-property-bar__search-toggle-button-icon" aria-labelledby="title">
+              <title>search</title>
+              <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#search"></use>
+            </svg>
+          </button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  <div class="n-property-bar__toolbar">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">Español</span>
+          <svg class="n-globe__icon" aria-labelledby="title">
+            <title>globe</title>
+            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#globe"></use>
+          </svg>
+        </button>
+      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/es-es/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">Español</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ko-kr/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/de-de/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">Deutsch</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/fr-fr/cloud-manager-file-cache/task-gfc-getting-started.html" target="_self"><span translate="no" class="notranslate">Français</span></a>
+        </li></ul>
+    </div><!-- End Language Selector -->
+
+    <div class="n-property-bar__cta"></div>
+  </div>
+  <!-- End property bar -->
+</header>
+
+
+        <main id="n-main-content" class="n-main-content">
+          <!-- Start Documentation Content -->
+<div class="ie-main">
+  <!-- Sidebar Column -->
+  
+  <div class="col-md-3" id="sidebar-height">
+      <button id="btn-sidebar-collapse" onclick="hideSidebar()"><img src="/es-es/cloud-manager-file-cache/images/collapse.png" alt="Contraer panel de navegación"></button>
+      <div class="n-pdf-header">
+  <a id="toggleButtonPdf" class="n-pdf-button" type="button">
+    <img src="/es-es/cloud-manager-file-cache/images/pdf.png" alt="" width="16" height="16"/>PDFs disponibles<span>
+    </span>
+  </a>
+</div>
+<div class="n-pdf-body-container">
+  <ul id="toggleContainerPdf" class="n-pdf-body" style="display:none;"><li class="pdf-ux-container">
+        
+        
+        
+        <a target="_blank" href="/es-es/cloud-manager-file-cache/pdfs/fullsite-sidebar/Documentación_de_Global_File_Cache.pdf" >
+          <img src="/es-es/cloud-manager-file-cache/images/pdf.png" alt="" width="16" height="16"/>PDF de este sitio de documentos</a>
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-file-cache/pdfs/sidebar/Notas_de_la_versión.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-file-cache/images/pdf.png" alt="" width="16" height="16"/>
+            Notas de la versión
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-file-cache/pdfs/sidebar/Manos_a_la_obra.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-file-cache/images/pdf.png" alt="" width="16" height="16"/>
+            Manos a la obra
+          </a>
+          
+
+
+
+
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
+  
+
+
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-file-cache/pdfs/sidebar/Usar_caché_de_archivos_global.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-file-cache/images/pdf.png" alt="" width="16" height="16"/>
+            Usar caché de archivos global
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/es-es/cloud-manager-file-cache/pdfs/sidebar/Conocimiento_y_apoyo.pdf" 
+            
+          >
+            <img src="/es-es/cloud-manager-file-cache/images/pdf.png" alt="" width="16" height="16"/>
+            Conocimiento y apoyo
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
+
+</li></ul>
+  <div class="zip-pdf-link-container" style="display: none;">   
+    <a href="#" id="zipPdf">
+      <img src="/es-es/cloud-manager-file-cache/images/pdf-zip.png" alt="" width="16" height="16"/>
+      <pre>Colección de documentos PDF separados<span class="zip-size"></span></pre>
+    </a><div id="zip-link-popup" class="hide">
+    <div class="inner-modal">
+        <div class="downloading-progress">
+            <div class="spinner"></div>
+            <h1>Creating your file...</h1>
+            <div>This may take a few minutes. Thanks for your patience.</div>
+            <button class="cancel-download-btn" type="button">Cancel</button>
+        </div>
+        <div class="download-complete hide">
+            <div class="done-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M20.285 2l-11.285 11.567-5.286-5.011-3.714 3.716 9 8.728 15-15.285z"/></svg>
+            </div>
+            <div>Your file is ready</div>
+            <button class="cancel-download-btn" type="button">OK</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(".cancel-download-btn").click(function(){
+        $("#zip-link-popup").addClass("hide");
+        $("#zip-link-popup .downloading-progress").removeClass("hide");
+        $("#zip-link-popup .download-complete").addClass("hide");
+    });
+</script></div>
+</div>
+<script>
+  $("#toggleContainerPdf li.active:last-child").parents('ul.subfolders').toggle('display');
+  $("#toggleButtonPdf").click(function () {
+    $("#toggleContainerPdf").toggle('display');
+    $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
+  });
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/es-es/cloud-manager-family/"><img src="/es-es/cloud-manager-file-cache/images/left_arrow.png" alt=""><pre>Toda la documentación de BlueXP</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Documentos de Global File Cache"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/index.html">
+        Documentos de Global File Cache
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Notas de la versión"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Notas de la versión</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Novedades"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/whats-new.html">
+        Novedades
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Problemas solucionados"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/fixed-issues.html">
+        Problemas solucionados
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Manos a la obra"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Manos a la obra</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga más información sobre la caché global de archivos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/concept-gfc.html">
+        Obtenga más información sobre la caché global de archivos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos previos de la caché global de archivos"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/concept-before-you-begin-to-deploy-gfc.html">
+        Requisitos previos de la caché global de archivos
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Despliegue y licencia de Global File Cache"
+      data-li-level="2#" 
+      class="  active "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/task-gfc-getting-started.html">
+        Despliegue y licencia de Global File Cache
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Requisitos previos de Global File Cache Edge"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/download-gfc-resources.html">
+        Requisitos previos de Global File Cache Edge
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Ponga en marcha Global File Cache Edge"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/task-deploy-gfc-edge-instances.html">
+        Ponga en marcha Global File Cache Edge
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Usar caché de archivos global"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Usar caché de archivos global</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Formación para el usuario final"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/concept-gfc-enduser-training.html">
+        Formación para el usuario final
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Información adicional"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/reference-gfc-additional-information.html">
+        Información adicional
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Conocimiento y apoyo"
+      data-li-level="1" 
+      class="subfolders "
+    ><a href="#">
+        <div class="na-navbar-padding"> Conocimiento y apoyo</div>
+      </a>
+      <ul style="display: none;">
+        <li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Regístrese para recibir soporte"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/task-support-registration.html">
+        Regístrese para recibir soporte
+      </a></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Obtenga ayuda"
+      data-li-level="2#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/task-get-help.html">
+        Obtenga ayuda
+      </a></li></ul></li><li 
+      data-pdf-exists="true" 
+      data-pdf-filename="Avisos legales"
+      data-li-level="1#" 
+      class=" "
+    ><a class="na-navbar-padding" href="/es-es/cloud-manager-file-cache/legal-notices.html">
+        Avisos legales
+      </a></li></ul>
+</div>
+<script>
+  window.onscroll = () => {
+    const value = -40 - (document.body.scrollHeight - (window.innerHeight + document.scrollingElement.scrollTop));
+    
+    document.getElementById("sidebar-height").style.bottom = Math.max(0,value) + "px";
+};
+</script>
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+<script>$("#mysidebar li.active").parents('ul').css("display","block");</script>
+
+
+  </div>
+  
+
+  <div class="ie-content-pane n-doc__component-detail-content n-doc__component-detail-content--show-code">
+    <!-- Begin of page container --><article class="page-content" id="main">
+      <div class="ie-utility">
+  <button id="btn-sidebar-expand" onclick="showSidebar()"><img src="/es-es/cloud-manager-file-cache/images/expand.png" alt="Expandir panel de navegación"></button>
+  <div class="ie-menu">
+    <div class="n-breadcrumb">
+      <ul class="n-breadcrumb__list">
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com">docs.netapp.com</a>
+        </li>
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/us-en/cloud/">Cloud Docs</a>
+        </li>
+        
+
+        
+        <li class="n-breadcrumb__list-item">
+          <a href="https://docs.netapp.com/es-es/cloud-manager-family/">BlueXP</a>
+        </li>
+        
+
+        <li class="n-breadcrumb__list-item">
+          <a href="/es-es/cloud-manager-file-cache/">Global&nbsp;File&nbsp;Cache</a>
+        </li>
+
+      </ul>
+    </div>
+    <div style="clear: both"></div><!-- Main needs to have height -->
+  </div>
+</div>
+
+      <div class="ie-nmt-disclaimer">
+  <span>
+    <div class="ie-nmt-disclaimer-container">
+      <div class="ie-nmt-disclaimer-icon">
+        <svg class="luci-icon" aria-hidden="true">
+          <use xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#circle-info">
+        </svg>
+      </div>
+      <div class="ie-nmt-disclaimer-content">
+        <span> Se proporciona el idioma español mediante traducción automática para su comodidad. En caso de alguna inconsistencia, el inglés precede al español. </span>
+      </div>
+      <div style="clear:both;"></div>
+    </div>
+  </span>
+</div><div class="n-doc__component-detail-heading-wrap">
+  <h1 class="n-doc__component-detail-heading">Primeros pasos</h1>
+</div>
+
+
+<p class="page-details">
+  
+    
+    <time datetime="2023-02-20 15:35:02 +0000">02/20/2023</time>
+    
+  
+
+<span>Colaboradores
+</span>
+
+
+</p>
+
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph lead">
+<p>Utilice BlueXP para implementar el servidor de administración de caché de archivos global y el software de núcleo de caché de archivos global en el entorno de trabajo.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="active-la-caché-global-de-archivos-con-bluexp">Active la caché global de archivos con BlueXP</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>En esta configuración, implementará el servidor de administración global de caché de archivos y el núcleo de caché global de archivos en el mismo entorno de trabajo en el que creó el sistema Cloud Volumes ONTAP con BlueXP.</p>
+</div>
+<div class="paragraph">
+<p>Ver <a href="https://www.youtube.com/watch?v=TGIQVssr43A" target="_blank" rel="noopener">"este vídeo"</a> para ver los pasos de principio a fin.</p>
+</div>
+<div class="sect2">
+<h3 id="inicio-rápido">Inicio rápido</h3>
+<div class="paragraph">
+<p>Empiece rápidamente siguiendo estos pasos o desplácese hacia abajo hasta las secciones restantes para obtener todos los detalles:</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png" alt="Uno"></span> Ponga en marcha Cloud Volumes ONTAP</div>
+<p>Ponga en marcha Cloud Volumes ONTAP en Azure o AWS y configure los recursos compartidos de archivos de SMB. Para obtener más información, consulte <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html" target="_blank" rel="noopener">"Inicio de Cloud Volumes ONTAP en Azure"</a> o. <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html" target="_blank" rel="noopener">"Inicio de Cloud Volumes ONTAP en AWS"</a>.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png" alt="Dos"></span> Implemente el servidor de gestión global de caché de archivos</div>
+<p>Implemente una instancia del servidor de administración de caché de archivos global en el mismo entorno de trabajo que la instancia de Cloud Volumes ONTAP.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png" alt="Tres"></span> Implemente el núcleo de caché global de archivos</div>
+<p>Implementar una instancia, o varias instancias, del núcleo de caché de archivos global en el mismo entorno de trabajo que la instancia de Cloud Volumes ONTAP y unirlo al dominio de Active Directory.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png" alt="Cuatro"></span> Memoria caché de archivos global de licencias</div>
+<p>Configure el servicio de servidor de gestión de licencias (LMS) de caché global de archivos en una instancia de núcleo de caché global de archivos. Necesitará sus credenciales de NSS o un ID de cliente y número de suscripción que proporciona NetApp para activar su suscripción.</p>
+</div>
+<div class="paragraph quick-margin-para">
+<div class="title"><span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png" alt="Cinco"></span> Implemente las instancias de Global File Cache Edge</div>
+<p>Consulte <a href="task-deploy-gfc-edge-instances.html" target="_blank" rel="noopener">"Implementación de instancias globales de File Cache Edge"</a> Para implementar las instancias de Global File Cache Edge en cada ubicación remota. Este paso no se realiza utilizando BlueXP.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ponga-en-marcha-cloud-volumes-ontap-como-su-plataforma-de-almacenamiento">Ponga en marcha Cloud Volumes ONTAP como su plataforma de almacenamiento</h3>
+<div class="paragraph">
+<p>En la versión actual, la caché de archivos global es compatible con Cloud Volumes ONTAP implementado en Azure o AWS. Para obtener detalles sobre los requisitos previos, los requisitos y las instrucciones de puesta en marcha, consulte <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html" target="_blank" rel="noopener">"Inicio de Cloud Volumes ONTAP en Azure"</a> o. <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-aws.html" target="_blank" rel="noopener">"Inicio de Cloud Volumes ONTAP en AWS"</a>.</p>
+</div>
+<div class="paragraph">
+<p>Tenga en cuenta los siguientes requisitos adicionales de caché global de archivos:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Debe configurar los recursos compartidos de archivos SMB en la instancia de Cloud Volumes ONTAP.</p>
+<div class="paragraph">
+<p>Si no hay recursos compartidos de archivos SMB configurados en la instancia, se le pedirá que configure los recursos compartidos SMB durante la instalación de los componentes de Global File Cache.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="habilite-la-caché-global-de-archivos-en-el-entorno-de-trabajo">Habilite la caché global de archivos en el entorno de trabajo</h3>
+<div class="paragraph">
+<p>El asistente de caché global de archivos le guía por los pasos para implementar la instancia de servidor de gestión global de caché de archivos y la instancia de núcleo de caché global de archivos, como se indica a continuación.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install1.png" alt="Captura de pantalla de la página de instalación de Global File Cache inicial."></span></p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Seleccione el entorno de trabajo en el que ha implementado Cloud Volumes ONTAP.</p>
+</li>
+<li>
+<p>En el panel Servicios, haga clic en <strong>Activar GFC</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install2.png" alt="Captura de pantalla del botón Enable GFC inicial del entorno de trabajo para habilitar Global File Cache."></span></p>
+</div>
+</li>
+<li>
+<p>Lea la página Descripción general y haga clic en <strong>continuar</strong>.</p>
+</li>
+<li>
+<p>Si no hay recursos compartidos de SMB disponibles en la instancia de Cloud Volumes ONTAP, se le pedirá que introduzca los detalles de SMB Server y SMB Share para crear el recurso compartido ahora. Para obtener más detalles sobre la configuración SMB, consulte <a href="concept-before-you-begin-to-deploy-gfc.html#storage-platform-volumes" target="_blank" rel="noopener">"Plataforma de almacenamiento dinámica"</a>.</p>
+<div class="paragraph">
+<p>Cuando termine, haga clic en <strong>continuar</strong> para crear el recurso compartido SMB.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install3.png" alt="Captura de pantalla que muestra la información necesaria para crear un recurso compartido SMB si no hay uno disponible."></span></p>
+</div>
+</li>
+<li>
+<p>En la página Global File Cache Service, introduzca el número de instancias de Global File Cache Edge que tiene previsto implementar y, a continuación, asegúrese de que el sistema cumple los requisitos de las reglas de configuración de red y firewall, la configuración de Active Directory y las exclusiones de antivirus. Consulte <a href="concept-before-you-begin-to-deploy-gfc.html#prerequisites">"Requisitos previos"</a> para obtener más detalles.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install4.png" alt="Captura de pantalla que muestra los requisitos previos antes de implementar las instancias de servidor de administración de caché de archivos global y núcleo."></span></p>
+</div>
+</li>
+<li>
+<p>Después de verificar que se han cumplido los requisitos o que tiene la información necesaria para cumplir estos requisitos, haga clic en <strong>continuar</strong>.</p>
+</li>
+<li>
+<p>Introduzca las credenciales de administrador que utilizará para acceder a la VM del servidor de gestión de caché de archivos global y haga clic en <strong>Activar GFC Service</strong>. Para Azure, debe introducir las credenciales como nombre de usuario y contraseña; para AWS, seleccione la pareja de claves adecuada. Es posible cambiar el nombre de la máquina virtual/instancia si se desea.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install5.png" alt="Captura de pantalla que muestra la información de configuración necesaria para configurar el servidor de gestión de caché de archivos global."></span></p>
+</div>
+</li>
+<li>
+<p>Después de implementar correctamente el servicio de administración de caché de archivos global, haga clic en <strong>continuar</strong>.</p>
+</li>
+<li>
+<p>Para Global File Cache Core, introduzca las credenciales de usuario admin para unirse al dominio de Active Directory y las credenciales de usuario de la cuenta de servicio. A continuación, haga clic en <strong>continuar</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La instancia núcleo de caché de archivos global debe implementarse en el mismo dominio de Active Directory que la instancia de Cloud Volumes ONTAP.</p>
+</li>
+<li>
+<p>La cuenta de servicio es un usuario de dominio y forma parte del grupo BUILTIN\operadores de copia de seguridad de la instancia de Cloud Volumes ONTAP.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install6.png" alt="Una captura de pantalla que muestra la información de configuración necesaria para configurar el directorio activo central de caché de archivos global y la cuenta de servicio."></span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Introduzca las credenciales de administración que utilizará para acceder a la VM principal de caché de archivos global y haga clic en <strong>implementar GFC Core</strong>. Para Azure, debe introducir las credenciales como nombre de usuario y contraseña; para AWS, seleccione la pareja de claves adecuada. Es posible cambiar el nombre de la máquina virtual/instancia si se desea.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install7.png" alt="Captura de pantalla que muestra la información de configuración necesaria para configurar la instancia de Global File Cache Core."></span></p>
+</div>
+</li>
+<li>
+<p>Una vez que el núcleo de caché de archivos global se haya implementado correctamente, haga clic en <strong>vaya a Dashboard</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install8.png" alt="Una captura de pantalla que muestra el panel de caché de archivos global una vez completada la instalación."></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>El Panel muestra que la instancia de Management Server y la instancia de Core son <strong>on</strong> y están funcionando.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="licencia-de-la-instalación-de-global-file-cache">Licencia de la instalación de Global File Cache</h3>
+<div class="paragraph">
+<p>Para poder utilizar Global File Cache, debe configurar el servicio Global File Cache License Management Server (LMS) en una instancia de Global File Cache Core. Necesitará sus credenciales de NSS o un ID de cliente y un número de suscripción proporcionados por NetApp para activar su suscripción.</p>
+</div>
+<div class="paragraph">
+<p>En este ejemplo, configuraremos el servicio LMS en una instancia Core que acaba de poner en marcha en la nube pública. Este es un proceso único que configura el servicio LMS.</p>
+</div>
+<div class="olist arabic">
+<div class="title">Pasos</div>
+<ol class="arabic">
+<li>
+<p>Abra la página Registro de licencias de la caché global de archivos en el núcleo de la caché global de archivos (el núcleo que está designando como servicio LMS) mediante la siguiente URL. Sustituya <em>&lt;dirección_ip&gt;</em> por la dirección IP de Global File Cache Core:https://&lt;ip_address&gt;/lms/api/v1/config/lmsconfig.html[]</p>
+</li>
+<li>
+<p>Haga clic en * “continuar a este sitio web (no recomendado)”* para continuar. Se muestra una página que permite configurar el LMS o comprobar la información de licencia existente.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_license1.png" alt="Captura de pantalla de la página de registro de licencias de Global File Cache."></span></p>
+</div>
+</li>
+<li>
+<p>Seleccione el modo de registro:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>“NetApp LMS” se utiliza para los clientes que han adquirido licencias de NetApp Global File Cache Edge a NetApp o a sus partners certificados. (Preferido)</p>
+</li>
+<li>
+<p>La opción «LMS heredado» se utiliza para clientes existentes o de prueba que hayan recibido un ID de cliente a través del servicio de soporte de NetApp. (Esta opción quedó obsoleta).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Para este ejemplo, haga clic en <strong>NetApp LMS</strong>, introduzca su ID de cliente (preferiblemente su dirección de correo electrónico) y haga clic en <strong>Register LMS</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_license2.png" alt="Captura de pantalla de introducción de un ID de cliente de LMS en las instalaciones en la página Registro de licencias de caché de archivos global."></span></p>
+</div>
+</li>
+<li>
+<p>Compruebe si hay un correo electrónico de confirmación de NetApp que incluya su número de suscripción de software GFC y su número de serie.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_license_email.png" alt="Una captura de pantalla del correo electrónico de NetApp que contiene su número de suscripción de software GFC."></span></p>
+</div>
+</li>
+<li>
+<p>Haga clic en la pestaña <strong>NetApp LMS Settings</strong>.</p>
+</li>
+<li>
+<p>Seleccione <strong>GFC License Subscription</strong>, introduzca su número de suscripción de software GFC y haga clic en <strong>Enviar</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_license_subscription.png" alt="Captura de pantalla de introducción del número de suscripción de software GFC en la página de suscripción de licencia GFC."></span></p>
+</div>
+<div class="paragraph">
+<p>Verá un mensaje que indica que la suscripción a la licencia de GFC se ha registrado correctamente y se ha activado para la instancia de LMS. Las compras posteriores se agregarán automáticamente a la suscripción a la licencia de GFC.</p>
+</div>
+</li>
+<li>
+<p>Opcionalmente, puede hacer clic en la pestaña <strong>Información de licencia</strong> para ver toda la información de licencia GFC.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<div class="title">¿Cuál es el futuro?</div>
+<p>Si ha determinado que necesita implementar varios núcleos de caché global de archivos para admitir su configuración, haga clic en <strong>Agregar instancia principal</strong> en el Panel de control y siga el asistente de implementación.</p>
+</div>
+<div class="paragraph">
+<p>Una vez finalizada la implementación básica, debe hacerlo <a href="download-gfc-resources.html" target="_blank" rel="noopener">"Implemente las instancias de Global File Cache Edge"</a> en cada una de sus oficinas remotas.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="puesta-en-marcha-de-instancias-de-core-adicionales">Puesta en marcha de instancias de Core adicionales</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Si su configuración requiere que se instale más de un núcleo de caché de archivos global debido a un gran número de instancias de Edge, puede agregar otro núcleo al entorno de trabajo.</p>
+</div>
+<div class="paragraph">
+<p>Al implementar instancias de Edge, configurará algunos para que se conecten al primer núcleo y otros al segundo núcleo. Las dos instancias principales acceden al mismo almacenamiento de back-end (su instancia de Cloud Volumes ONTAP) del entorno de trabajo.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>En el Panel de caché global de archivos, haga clic en <strong>Agregar instancia principal</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_add_another_core.png" alt="Una captura de pantalla de GFC Dashboard y el botón para añadir una instancia principal adicional."></span></p>
+</div>
+</li>
+<li>
+<p>Introduzca las credenciales de usuario administrador para unirse al dominio de Active Directory y las credenciales de usuario de la cuenta de servicio. A continuación, haga clic en <strong>continuar</strong>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>La instancia núcleo de caché de archivos global debe estar en el mismo dominio de Active Directory que la instancia de Cloud Volumes ONTAP.</p>
+</li>
+<li>
+<p>La cuenta de servicio es un usuario de dominio y forma parte del grupo BUILTIN\operadores de copia de seguridad de la instancia de Cloud Volumes ONTAP.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install6.png" alt="Una captura de pantalla que muestra la información de configuración necesaria para configurar el directorio activo central de caché de archivos global y la cuenta de servicio."></span></p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Introduzca las credenciales de administración que utilizará para acceder a la VM principal de caché de archivos global y haga clic en <strong>implementar GFC Core</strong>. Para Azure, debe introducir las credenciales como nombre de usuario y contraseña; para AWS, seleccione la pareja de claves adecuada. Puede cambiar el nombre de la máquina virtual si desea.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_install7.png" alt="Captura de pantalla que muestra la información de configuración necesaria para configurar la instancia de Global File Cache Core."></span></p>
+</div>
+</li>
+<li>
+<p>Una vez que el núcleo de caché de archivos global se haya implementado correctamente, haga clic en <strong>vaya a Dashboard</strong>.</p>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_gfc_dashboard_2cores.png" alt="Una captura de pantalla que muestra el panel de caché de archivos global una vez completada la instalación."></span></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>El panel de control refleja la segunda instancia de Core para el entorno de trabajo.</p>
+</div>
+</div>
+</div>
+
+    </article>
+    <!-- Page Container -->
+  </div>
+
+  <div style="clear: both"></div><!-- Main needs to have height --></div>
+
+        </main>
+
+        <footer class="n-footer">
+  <div class="n-footer__bottom">
+    <div class="n-container">
+      <div class="n-footer__bottom-left">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/copyright/">© 2023 NetApp, Inc.</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/terms-of-use/">Términos y condiciones</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/privacy-policy/">Política de privacidad</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a href="https://www.netapp.com/company/legal/cookie-policy/">Política de Cookies</a>
+            </li>
+            <li class="n-footer__copyright-link">
+              <a class="ot-sdk-show-settings">Configuración de cookies</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="n-footer__bottom-right">
+        <div class="n-footer__copyright">
+          <ul class="n-footer__copyright-list">
+            <li class="n-footer__copyright-link">
+              <a target="_self" href="javascript:netapp_mailto()">Enviar comentarios sobre esta página</a>
+            </li>
+          </ul>
+        </div>
+        <div class="n-footer__social-links">
+          <ul class="n-footer__social-link-list">
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-blog" href="https://blog.netapp.com"
+                target="_blank" title="blog" alt="blog">
+                <span class="n-footer__social-link-text">blog</span>
+                <svg class="n-icon-blog n-footer__social-link-icon" aria-labelledby="title">
+                  <title>blog@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#blog"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-community" href="https://community.netapp.com/"
+                target="_blank" title="community" alt="community">
+                <span class="n-footer__social-link-text">community</span>
+                <svg class="n-icon-community n-footer__social-link-icon" aria-labelledby="title">
+                  <title>community@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#comments"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-twitter" href="https://twitter.com/netapp"
+                target="_blank" title="twitter" alt="twitter">
+                <span class="n-footer__social-link-text">twitter</span>
+                <svg class="n-icon-twitter n-footer__social-link-icon" aria-labelledby="title">
+                  <title>twitter@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#twitter"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-facebook" href="https://www.facebook.com/NetApp"
+                target="_blank" title="facebook" alt="facebook">
+                <span class="n-footer__social-link-text">facebook</span>
+                <svg class="n-icon-facebook n-footer__social-link-icon" aria-labelledby="title">
+                  <title>facebook@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#facebook"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-linkedin"
+                href="https://www.linkedin.com/company/netapp" target="_blank" title="linkedin" alt="linkedin">
+                <span class="n-footer__social-link-text">linkedin</span>
+                <svg class="n-icon-linkedin n-footer__social-link-icon" aria-labelledby="title">
+                  <title>linkedin@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#linkedin"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-youtube"
+                href="https://www.youtube.com/user/NetAppTV" target="_blank" title="youtube" alt="youtube">
+                <span class="n-footer__social-link-text">youtube</span>
+                <svg class="n-icon-youtube n-footer__social-link-icon" aria-labelledby="title">
+                  <title>youtube@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#youtube"></use>
+                </svg>
+              </a>
+            </li>
+            <li class="n-footer__social-link-list-item">
+              <a class="n-footer__social-link" data-ntap-social="follow-slideshare"
+                href="https://www.slideshare.net/NetApp" target="_blank" title="slideshare" alt="slideshare">
+                <span class="n-footer__social-link-text">slideshare</span>
+                <svg class="n-icon-slideshare n-footer__social-link-icon" aria-labelledby="title">
+                  <title>slideshare@</title>
+                  <use xmlns:xlink="http://www.w3.org/1999/xlink"
+                    xlink:href="/es-es/cloud-manager-file-cache/common/svg/sprite.svg#slideshare"></use>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+      </div><!-- Elasticsearch JS -->
+      <script type="text/javascript" src='/es-es/cloud-manager-file-cache/js/bundle.js'></script>
+
+      <!-- Syntax Highlighting -->
+      <script type="text/javascript" src='/es-es/cloud-manager-file-cache/js/prism.js'></script>
+      <script type="text/javascript" src='/es-es/cloud-manager-file-cache/js/prism-curl.js'></script>
+    </div>
+    <script>
+      document.body.offsetWidth=1903;
+      cookieLaw = {}
+      cookieLaw.euCountry = "US";
+      cookieLaw.invoke = function(){return false;}
+    </script>
+    <script src='/es-es/cloud-manager-file-cache/js/www-ntap.js'></script>
+    <script src='/es-es/cloud-manager-file-cache/js/tabbed-blocks.js'></script>
+    <script src='/es-es/cloud-manager-file-cache/js/sidebar.js'></script>
+  </body></html>
